@@ -1,0 +1,6 @@
+test.py
+*.mp4
+output/
+videos/
+
+__pycache__/
