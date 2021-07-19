@@ -20,8 +20,8 @@ img_dir = Path('./output_imgs')
 # Step 2
 # extract key frames using mask file and threshold created by previous step
 # save output video file under ./output directory
-# extract(video_path, mask_file_path='mask.npy',
-#         threshold=2000, out_dir=video_dir)
+extract(video_path, mask_file_path='mask.npy',
+        threshold=2000, out_dir=video_dir)
 
 
 # Step 3

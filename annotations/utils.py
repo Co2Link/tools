@@ -48,7 +48,7 @@ def videos_to_frame(video_dir, out_dir, ratio=1):
     """
     Args:
         folder: pathlib.Path
-        output_folder: pathlib.Path
+        out_dir: pathlib.Path
         ratio: keep 1 frame for every ratio frames
     """
     paths = video_dir.glob('*')
