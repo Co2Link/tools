@@ -75,7 +75,7 @@ def extract(video_path, draw_mask=False, threshold=2000, mask_file_path=None, is
     # discard sections that have less than MIN_SECTION_LEN frame
     MIN_SECTION_LEN = 3
     # add ADD_FRAME_NUM frames into the start and the end of the section
-    ADD_FRAME_NUM = 2
+    ADD_FRAME_NUM = 1
 
     frame_idxs = []
     frame_idx = 1
@@ -84,7 +84,7 @@ def extract(video_path, draw_mask=False, threshold=2000, mask_file_path=None, is
     cap = cv2.VideoCapture(str(video_path))
     H, W = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(
         cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    ret, frame = cap.read()
+    ret, frame = cap.read() # shape (800, 600)
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     if mask_file_path is not None:
         mask = np.load(mask_file_path)

@@ -4,3 +4,8 @@ output/
 videos/
 
 __pycache__/
+
+output_imgs/
+output_videos/
+
+mask.npy

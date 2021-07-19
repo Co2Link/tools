@@ -44,20 +44,26 @@ def rename_voc(img_dir, annotation_path, suffix):
         json.dump(data, f)
 
 
-def videos_to_frame(folder, output_folder, ratio):
-    paths = glob.glob(os.path.join(folder, '*'))
-    if os.path.exists(output_folder):
-        shutil.rmtree(output_folder)
-    os.makedirs(output_folder)
+def videos_to_frame(video_dir, out_dir, ratio=1):
+    """
+    Args:
+        folder: pathlib.Path
+        output_folder: pathlib.Path
+        ratio: keep 1 frame for every ratio frames
+    """
+    paths = video_dir.glob('*')
+    if os.path.exists(out_dir):
+        shutil.rmtree(out_dir)
+    out_dir.mkdir(parents=True)
     count = 0
     img_count = 0
     for path in paths:
-        cap = cv2.VideoCapture(path)
+        cap = cv2.VideoCapture(str(path))
         ret, frame = cap.read()
         while ret:
             if count % ratio == 0:
-                cv2.imwrite(os.path.join(
-                    output_folder, '{:06d}.png'.format(img_count)), frame)
+                # cv2.imwrite(os.path.join(output_folder, '{:06d}.png'.format(img_count)), frame)
+                cv2.imwrite(str(out_dir / f'{img_count:06d}.png'), frame)
                 img_count += 1
             count += 1
             ret, frame = cap.read()
