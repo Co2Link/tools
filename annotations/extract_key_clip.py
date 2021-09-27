@@ -67,15 +67,23 @@ def extract(video_path, draw_mask=False, threshold=2000, mask_file_path=None, is
     # parameters
     # the following parameters is suitable for 1 FPS video
     # pixel difference computed between T  and T + BUFFER_SIZE (T: current frame)
-    BUFFER_SIZE = 2
+    # BUFFER_SIZE = 2
     # number of pixels that its pixel diference is bigger than 50, exceed which to be considered as key frame
-    THRESHOLD = threshold
+    # THRESHOLD = threshold
     # maximum gap between frames to be considered in same section
-    MAX_GAP = 2
+    # MAX_GAP = 2
     # discard sections that have less than MIN_SECTION_LEN frame
-    MIN_SECTION_LEN = 3
+    # MIN_SECTION_LEN = 3
     # add ADD_FRAME_NUM frames into the start and the end of the section
-    ADD_FRAME_NUM = 1
+    # ADD_FRAME_NUM = 1
+
+    # for 5 FPS video
+    BUFFER_SIZE = 5
+    THRESHOLD = threshold
+    MAX_GAP = 3
+    MIN_SECTION_LEN = 5
+    ADD_FRAME_NUM = 12
+
 
     frame_idxs = []
     frame_idx = 1
