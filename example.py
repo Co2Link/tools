@@ -1,11 +1,10 @@
-from annotations.extract_key_clip import extract
 from pathlib import Path
+
+from annotations.extract_key_clip import extract
 from annotations.utils import videos_to_frame
 
-video_path = Path('H:/prime42/2021-07-09_16.mp4')
-video_dir = Path('./output_videos')
-img_dir = Path('./output_imgs')
-
+video_dir = Path("./output_videos")
+img_dir = Path("./output_imgs")
 
 
 # Step 1
@@ -20,8 +19,7 @@ img_dir = Path('./output_imgs')
 # Step 2
 # extract key frames using mask file and threshold created by previous step
 # save output video file under ./output directory
-extract(video_path, mask_file_path='mask.npy',
-        threshold=2000, out_dir=video_dir)
+extract(video_path, mask_file_path="mask.npy", threshold=2000, out_dir=video_dir)
 
 
 # Step 3
